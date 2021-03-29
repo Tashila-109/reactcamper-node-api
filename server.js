@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const colors = require('colors')
 
 // Database connection
 const connectDB = require('./config/db');
@@ -33,11 +34,11 @@ app.use('/api/v1/bootcamps', bootcamps);
 const PORT = process.env.PORT || 5000;
 
 // eslint-disable-next-line no-undef
-const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.magenta.bold));
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (error, promise) => {
-  console.log(`Error: ${error.message}`);
+  console.log(`Error: ${error.message}`.red);
   // Close server and exit process
   server.close(() => process.exit(1));
 });
