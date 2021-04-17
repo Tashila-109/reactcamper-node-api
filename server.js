@@ -2,7 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const colors = require('colors')
+const colors = require('colors');
 
 // Database connection
 const connectDB = require('./config/db');
@@ -11,7 +11,7 @@ const connectDB = require('./config/db');
 const logger = require('./middleware/logger');
 
 // Load env vars
-dotenv.config({path: './config/config.env'});
+dotenv.config({ path: './config/config.env' });
 
 // Connect to Database
 connectDB();
@@ -20,6 +20,9 @@ connectDB();
 const bootcamps = require('./routes/bootcamps');
 
 const app = express();
+
+// Body parser
+app.use(express.json());
 
 // Dev logging middleware
 // eslint-disable-next-line no-undef
