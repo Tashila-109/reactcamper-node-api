@@ -4,6 +4,9 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 
+// Error Middleware
+const errorHandler = require('./middleware/error');
+
 // Database connection
 const connectDB = require('./config/db');
 
@@ -32,6 +35,9 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+
+// Use Error Handler
+app.use(errorHandler);
 
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 5000;
