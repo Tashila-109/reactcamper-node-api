@@ -122,10 +122,10 @@ BootcampSchema.pre('save', async function (next) {
     country: loc[0].countryCode,
   };
 
-//   // Do not save address in DB
-//   this.address = undefined;
-//   next();
-// });
+  // Do not save address in DB
+  this.address = undefined;
+  next();
+});
 
 // // Cascade delete courses when a bootcamp is deleted
 // BootcampSchema.pre('remove', async function (next) {
