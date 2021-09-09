@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+// eslint-disable-next-line no-unused-vars
 const colors = require('colors');
 
 // Error Middleware
