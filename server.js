@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 // eslint-disable-next-line no-unused-vars
 const colors = require('colors');
+const fileUpload = require('express-fileupload');
 
 // Error Middleware
 const errorHandler = require('./middleware/error');
@@ -34,6 +35,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// File uploading
+app.use(fileupload());
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
