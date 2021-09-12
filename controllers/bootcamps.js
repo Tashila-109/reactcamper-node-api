@@ -1,4 +1,5 @@
 // const { reset } = require('colors');
+const path = require('path');
 const ErrorResponse = require('../utils/errorResponse');
 const geocoder = require('../utils/geocoder');
 const asyncHandler = require('../middleware/async');
@@ -115,7 +116,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
 
-  const file = req.files.file;
+  const {file} = req.files;
 
   // Make sure the image is a photo
   if (!file.mimetype.startsWith('image')) {
