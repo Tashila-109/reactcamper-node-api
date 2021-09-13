@@ -9,9 +9,7 @@ const Bootcamp = require('../models/Bootcamp');
 // @route     GET /api/vi/bootcamps
 // @access    Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-  const bootcamps = await Bootcamp.find();
-
-  res.status(200).json({ success: true, count: bootcamps.length, data: bootcamps });
+  res.status(200).json(res.advancedResults);
 });
 
 // @desc      Get single bootcamp
@@ -116,7 +114,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
 
-  const {file} = req.files;
+  const { file } = req.files;
 
   // Make sure the image is a photo
   if (!file.mimetype.startsWith('image')) {
