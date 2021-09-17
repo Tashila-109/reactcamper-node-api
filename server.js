@@ -6,6 +6,7 @@ const morgan = require('morgan');
 // eslint-disable-next-line no-unused-vars
 const colors = require('colors');
 const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 
 // Error Middleware
 const errorHandler = require('./middleware/error');
@@ -32,6 +33,9 @@ const app = express();
 // Body parser
 app.use(express.json());
 
+// Cookie parser
+app.use(cookieParser());
+
 // Dev logging middleware
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === 'development') {
@@ -39,7 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // File uploading
-app.use(fileupload());
+app.use(fileUpload());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
