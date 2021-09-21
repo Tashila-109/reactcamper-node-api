@@ -13,7 +13,7 @@ const Course = require('./models/Course');
 const User = require('./models/User');
 const Review = require('./models/Review');
 
-// Connect to DB
+// Connect to the DB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -52,7 +52,7 @@ const importData = async () => {
   }
 };
 
-// Delete data
+// Delete data from DB
 const deleteData = async () => {
   try {
     await Bootcamp.deleteMany();
