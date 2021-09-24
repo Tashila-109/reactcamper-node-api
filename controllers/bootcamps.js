@@ -25,7 +25,7 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: bootcamp });
 });
 
-// @desc      Create new bootcamp
+// @desc      Create a new bootcamp
 // @route     POST /api/vi/bootcamp/:id
 // @access    Private
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
